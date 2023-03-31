@@ -1,0 +1,13 @@
+env - lists env variables.
+    The purpose is: to communicate to programms about how the machine is set up
+    and sometimes to control the behaviour of programms.
+
+getenv("NAME OF SEARCHED LINE") - works as $(env | grep "NAME OF SEARCHED LINE")
+
+waitpid - better than wait because u can use it as wait by passing -1 as 3d arg and u can do much more.
+    3d arg of ft: < -1 - for process group id
+                 == 0  - waits for specific pid
+                 > 0   - waits for all child processes of current group id
+    + flags !!!!
+
+heredoc source - https://stackoverflow.com/questions/70238913/heredoc-with-tmpfile
