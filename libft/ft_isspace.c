@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynguyen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vharkush <vharkush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 13:33:19 by ynguyen           #+#    #+#             */
-/*   Updated: 2022/11/02 14:53:02 by ynguyen          ###   ########.fr       */
+/*   Created: 2022/10/20 17:39:34 by ynguyen           #+#    #+#             */
+/*   Updated: 2024/01/06 20:38:28 by vharkush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int		ft_isspace(int c)
 {
-	t_list	*swap;
-	t_list	*node;
-
-	node = *lst;
-	if (lst == NULL)
-		return ;
-	while (node != NULL)
-	{
-		del(node->content);
-		swap = node;
-		node = node->next;
-		free(swap);
-	}
-	*lst = NULL;
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
 }

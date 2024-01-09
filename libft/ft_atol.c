@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynguyen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vharkush <vharkush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:34:26 by ynguyen           #+#    #+#             */
-/*   Updated: 2022/10/26 11:47:39 by ynguyen          ###   ########.fr       */
+/*   Created: 2022/10/17 20:29:13 by ynguyen           #+#    #+#             */
+/*   Updated: 2023/12/06 11:53:00 by vharkush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+long	ft_atol(char *str)
 {
-	char	*str;
 	int		i;
+	int		sign;
+	long	my_long;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	my_long = 0;
+	sign = 0;
 	if (!str)
 		return (0);
-	while (*s)
-	{
-		str[i] = f(i, *s);
+	while (str[i] == ' ')
 		i++;
-		s++;
+	if (str[i] == '-')
+		sign++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		my_long = my_long * 10 + str[i] - '0';
+		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	if (sign)
+		my_long *= -1;
+	return (my_long);
 }
