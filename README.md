@@ -1,6 +1,6 @@
 # PIPEX
 
-Exploring processes by writing a program that executes bash commands 🌸
+Exploring processes by writing a programm that executes bash commands 🌸
 
 ## About
 
